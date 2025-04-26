@@ -12,7 +12,7 @@ base_path = os.path.dirname(os.path.abspath(__file__))
 dataset_path = f"{base_path}/datasets/"
 UPLOAD_FOLDER = os.path.join(base_path, 'uploads')
 os.makedirs(UPLOAD_FOLDER, exist_ok=True)
-model=SimilarityServiceV4()
+model=SimilarityServiceV4("resnet50")
 
 @app.route('/')
 def home():
