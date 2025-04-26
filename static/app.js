@@ -1,3 +1,5 @@
+require('dotenv').config();
+
 
 document.getElementById('uploadButton').addEventListener('click', function() {
   document.getElementById('fileInput').click();
@@ -15,7 +17,7 @@ document.getElementById('findButton').addEventListener('click', async function()
 
   try {
 
-    const response = await axios.post("https://image-similarity-search-ky8r.onrender.com/similar", formData);
+    const response = await axios.post(`http://0.0.0.0:8000/similar`, formData);
     displayResults(response.data);
   } catch (error) {
     console.error("Error uploading image", error);
@@ -32,7 +34,7 @@ function displayResults(results) {
       card.className = 'card';
 
       const image = document.createElement('img');
-      image.src = `https://image-similarity-search-ky8r.onrender.com/+${result.path}`;
+      image.src = `http://0.0.0.0:8000${result.path}`;
       image.className = 'result-image';
       image.alt = `similar-${idx}`;
 
