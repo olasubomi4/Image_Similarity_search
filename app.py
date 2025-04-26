@@ -3,7 +3,7 @@ from flask_cors import CORS
 from werkzeug.utils import secure_filename
 import os
 
-from SimilarityServiceV2 import SimilarityServiceV2
+from SimilarityServiceV4 import SimilarityServiceV4
 
 app = Flask(__name__)
 CORS(app)
@@ -12,7 +12,7 @@ base_path = os.path.dirname(os.path.abspath(__file__))
 dataset_path = f"{base_path}/datasets/"
 UPLOAD_FOLDER = os.path.join(base_path, 'uploads')
 os.makedirs(UPLOAD_FOLDER, exist_ok=True)
-model=SimilarityServiceV2()
+model=SimilarityServiceV4()
 
 @app.route('/')
 def home():
