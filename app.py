@@ -19,6 +19,7 @@ def home():
     return render_template('index.html')
 @app.route('/similar', methods=['POST'])
 def find_similar():
+    print("hittt")
     if 'file' not in request.files:
         return jsonify({'error': 'No file uploaded'}), 400
 

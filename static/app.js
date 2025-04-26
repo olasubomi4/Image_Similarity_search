@@ -1,9 +1,9 @@
+
 document.getElementById('uploadButton').addEventListener('click', function() {
   document.getElementById('fileInput').click();
 });
 
 document.getElementById('findButton').addEventListener('click', async function() {
-  require('dotenv').config();
   const fileInput = document.getElementById('fileInput');
   if (!fileInput.files.length) {
     return alert("Please upload a file");
@@ -15,7 +15,7 @@ document.getElementById('findButton').addEventListener('click', async function()
 
   try {
 
-    const response = await axios.post(process.env.API_URL+"/similar", formData);
+    const response = await axios.post("https://image-similarity-search-ky8r.onrender.com/similar", formData);
     displayResults(response.data);
   } catch (error) {
     console.error("Error uploading image", error);
@@ -23,7 +23,6 @@ document.getElementById('findButton').addEventListener('click', async function()
 });
 
 function displayResults(results) {
-    require('dotenv').config();
   const resultsContainer = document.getElementById('resultsContainer');
   resultsContainer.innerHTML = ''; // Clear previous results
 
@@ -33,7 +32,7 @@ function displayResults(results) {
       card.className = 'card';
 
       const image = document.createElement('img');
-      image.src = `${process.env.API_URL}+${result.path}`;
+      image.src = `https://image-similarity-search-ky8r.onrender.com/+${result.path}`;
       image.className = 'result-image';
       image.alt = `similar-${idx}`;
 
