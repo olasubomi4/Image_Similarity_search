@@ -5,3 +5,4 @@ keras~=3.9.0
 scikit-learn~=1.6.1
 gunicorn~=23.0.0
 flask-cors
+faiss-cpu
