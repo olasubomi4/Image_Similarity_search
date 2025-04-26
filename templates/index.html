@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Image Similarity Search</title>
+  <link rel="stylesheet" href="../static/styles.css">
+</head>
+<body>
+  <div class="container">
+    <h2 class="heading">Image Similarity Search</h2>
+    <div class="upload-container">
+      <button class="upload-button" id="uploadButton">Upload Fruit Image</button>
+      <input id="fileInput" type="file" class="file-input" />
+      <br /><br />
+      <button class="upload-button" id="findButton">Find Similar Fruits</button>
+    </div>
+
+    <div class="results-container" id="resultsContainer"></div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <script src="../static/app.js"></script>
+</body>
+</html>

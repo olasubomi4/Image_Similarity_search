@@ -1,4 +1,4 @@
-from flask import Flask, request, jsonify,send_from_directory
+from flask import Flask, request, jsonify,send_from_directory,render_template
 from flask_cors import CORS
 from werkzeug.utils import secure_filename
 import os
@@ -16,7 +16,7 @@ model=SimilarityServiceV2()
 
 @app.route('/')
 def home():
-    return "yooo"
+    return render_template('index.html')
 @app.route('/similar', methods=['POST'])
 def find_similar():
     if 'file' not in request.files:
