@@ -9,7 +9,7 @@ app = Flask(__name__)
 CORS(app)
 
 base_path = os.path.dirname(os.path.abspath(__file__))
-dataset_path = f"{base_path}/datasets/"
+dataset_path = f"{base_path}/cars_Dataset_3/"
 UPLOAD_FOLDER = os.path.join(base_path, 'uploads')
 os.makedirs(UPLOAD_FOLDER, exist_ok=True)
 model=SimilarityServiceV4("resnet50")
@@ -29,7 +29,7 @@ def find_similar():
 
     # target = model.get_embedding(filepath)
     top_results = model.find_k_similar_images(filepath)[:5]
-    return jsonify([{'path': f"/datasets/{res[1]}", 'score': float(res[0])} for res in top_results])
+    return jsonify([{'path': f"/datasets/train{res[1]}", 'score': float(res[0])} for res in top_results])
 
 
 @app.route('/datasets/<path:filename>')
